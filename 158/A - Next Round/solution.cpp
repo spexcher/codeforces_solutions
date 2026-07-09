@@ -1,249 +1,269 @@
-#define MOD 1000000007
-#define mod 1000000007
+// ======================================================
+//  Author       : spexcher | Gourab Modak
+//  Created      : 09.07.2026 at 15:25:02
+//  Contact      : spexcher@gmail.com
+//  Linktree     : https://linktr.ee/spexcher/
+//  GitHub       : https://github.com/spexcher/
+//  LinkedIn     : https://www.linkedin.com/in/gourabmodak/
+//  YouTube      : https://www.youtube.com/@spexcher
 //
-#pragma region r1;
-/*----------------------------------------------------------------
-AUTHOR: sepxcher
-Name: Gourab Modak
-email: spexcher@gmail.com
-Institution: Indian Institute of Technology Madras(BS UG Data Science 4 year) + Jalpaiguri Government Engineering College (Btech UG CSE 4 year)
-Github: https://github.com/gauravthedeveloper/
-linkedin : https://www.linkedin.com/in/gourabmodak/
-codeforces : https://codeforces.com/profile/spexcher/
-codechef : https://www.codechef.com/users/spexcher/
-leetcode : https://leetcode.com/spexcher/
-*/
-#include <iostream>
-#include <cstdio>
-#include <cstdlib>
-#include <algorithm>
-#include <cmath>
-#include <vector>
-#include <set>
-#include <map>
-#include <unordered_set>
-#include <unordered_map>
-#include <queue>
-#include <ctime>
-#include <cassert>
-#include <complex>
-#include <string>
-#include <cstring>
+//  Happy Coding! Build, learn, and ship with confidence.
+// ======================================================
+ 
+// Pragmas
+// #pragma GCC target("avx2")
+#pragma GCC optimization("O3")
+// #pragma GCC optimization ("O2")
+//  #pragma GCC target("unroll-loops")
+ 
+// Includes and namespaces
+#include <bits/stdc++.h>
 #include <chrono>
-#include <random>
-#include <bitset>
-#include <array>
-#include <iomanip>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
 using namespace std;
-#ifndef ONLINE_JUDGE
-#define eprintf(...)                  \
-    {                                 \
-        fprintf(stderr, __VA_ARGS__); \
-        fflush(stderr);               \
-    }
-#else
-#define eprintf(...) 42
-#endif
-using ll = long long;
-using ld = long double;
-using uint = unsigned int;
-using ull = unsigned long long;
+using namespace __gnu_pbds;
+ 
+// Ordered Set and Ordered Map
 template <typename T>
-using pair2 = pair<T, T>;
+using oset = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+template <class key, class value, class cmp = less_equal<key>>
+using omap = tree<key, value, cmp, rb_tree_tag, tree_order_statistics_node_update>;
+ 
+// 1D Stuff
+using ll = long long;
+using ull = unsigned long long;
+using ld = long double;
+using i64 = long long;
 using pii = pair<int, int>;
-using pli = pair<ll, int>;
 using pll = pair<ll, ll>;
+using vi = vector<int>;
+using vll = vector<ll>;
+using vpii = vector<pii>;
+using vpll = vector<pll>;
+using vb = vector<bool>;
+using vc = vector<char>;
+using vs = vector<string>;
+ 
+// 2D Vectors
+using vvi = vector<vi>;
+using vvll = vector<vll>;
+using vvb = vector<vb>;
+using vvc = vector<vc>;
+using vvs = vector<vs>;
+using vvpii = vector<vpii>;
+using vvpll = vector<vpll>;
+ 
+// Maps
+using mii = map<int, int>;
+using mci = map<char, int>;
+using msi = map<string, int>;
+using umii = unordered_map<int, int>;
+using umci = unordered_map<char, int>;
+using umsi = unordered_map<string, int>;
+using mll = map<ll, ll>;
+using mcll = map<char, ll>;
+using msll = map<string, ll>;
+using umll = unordered_map<ll, ll>;
+using umcll = unordered_map<char, ll>;
+using umsll = unordered_map<string, ll>;
+ 
+// Sets
+using si = set<int>;
+using sll = set<ll>;
+using sc = set<char>;
+ 
+// Heaps
+template <class T>
+using min_heap = priority_queue<T, vector<T>, greater<T>>;
+template <class T>
+using max_heap = priority_queue<T>;
+ 
+// Shorthands
+#define F first
+#define S second
 #define eb emplace_back
-#define pb emplace_back
-#define int long long
-#define vi vector<ll>
-#define vb vector<bool>
-#define vvi vector<vector<ll>>
-#define vvb vector<vector<bool>>
-#define vvpii vector<vector<pii>>
-#define vpii vector<pii>
-#define lb lower_bound
-#define ub upper_bound
-#define mp make_pair
+#define pb push_back
+#define ppb pop_back
 #define all(x) (x).begin(), (x).end()
-#define ff first
-#define ss second
-#define sp(x) cout << fixed << setprecision(x)
-#define PI 3.1415926535897932384626
+#define rall(x) (x).rbegin(), (x).rend()
+ 
+// Functions
+#define sqrt(x) sqrtl((x))
+#define ceil(x) ceill((x))
+#define abs(x) labs((x))
+#define floor(x) floorl((x))
+#define ceildiv(a, b) ((a + b - 1) / b)
+#define sz(x) (ll) x.size()
+#define getunique(v) sort(all(v)), v.erase(unique(all(v)), v.end())
+#define print(x) cout << x
+#define printsp(x) cout << x << " "
+#define println(x) cout << x << "
+"
+#define upper(s1) transform(s1.begin(), s1.end(), s1.begin(), ::toupper)
+#define lower(s1) transform(s1.begin(), s1.end(), s1.begin(), ::tolower)
+#define sum(v) accumulate(all(v), 0ll)
+#define maxe(v) *max_element(v.begin(), v.end())
+#define mine(v) *min_element(v.begin(), v.end())
+ 
+#define fast_io                       \
+    ios_base::sync_with_stdio(false); \
+    cin.tie(NULL);                    \
+    cout.tie(NULL);                   \
+    cout << fixed << setprecision(25)
+ 
+// Prints
 #define py cout << "YES
 "
 #define pm cout << "-1
 "
 #define pn cout << "NO
 "
-#define deb(x) cout << #x << "=" << x << endl
-#define sz(x) (ll) x.size()
-#define deb2(x, y) cout << #x << "=" << x << "," << #y << "=" << y << endl
-#define gc getchar_unlocked
-#define fo(i, n) for (int i = 0; i < n; i++)
-#define forr(i, n) for (int i = n - 1; i >= 0; i--)
-#define Fo(i, k, n) for (i = k; k < n ? i < n : i > n; k < n ? i += 1 : i -= 1)
-clock_t startTime;
-mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
-double getCurrentTime()
+#define pm cout << "-1
+"
+#define pl cout << '
+'
+#define nl '
+'
+#define sp ' '
+ 
+// Returns
+#define r0 return 0
+#define r1 return 1
+#define rt return true
+#define rf return false
+ 
+// Loops
+#define ff(i, k, n) for (int i = k; i <= n; i++)
+#define fr(i, k, n) for (int i = k; i >= n; i -= 1)
+#define rep(i, k, n, s) for (int i = k; i <= n; i += s)
+#define per(i, k, n, s) for (int i = k; i >= n; i -= s)
+ 
+/* ===================== RAW INPUT OVERLOADS ===================== */
+ 
+template <class A, class B>
+istream &operator>>(istream &in, pair<A, B> &p)
 {
-    return (double)(clock() - startTime) / CLOCKS_PER_SEC;
-}
-ll myRand(ll B)
-{
-    return (ull)rng() % B;
-}
-// Check
-bool isPrime(ll n)
-{
-    if (n <= 1)
-        return false;
-    if (n <= 3)
-        return true;
-    if (n % 2 == 0 || n % 3 == 0)
-        return false;
-    for (int i = 5; i * i <= n; i = i + 6)
-        if (n % i == 0 || n % (i + 2) == 0)
-            return false;
-    return true;
-}
-bool isPowerOfTwo(int n)
-{
-    if (n == 0)
-        return false;
-    return (ceil(log2(n)) == floor(log2(n)));
-}
-bool isPerfectSquare(ll x)
-{
-    if (x >= 0)
-    {
-        ll sr = sqrt(x);
-        return (sr * sr == x);
-    }
-    return false;
+    return in >> p.first >> p.second;
 }
  
-// Bits
-string decToBinary(int n)
+template <class T>
+istream &operator>>(istream &in, vector<T> &v)
 {
-    string s = "";
-    int i = 0;
-    while (n > 0)
-    {
-        s = to_string(n % 2) + s;
-        n = n / 2;
-        i++;
-    }
-    return s;
-}
-ll binaryToDecimal(string n)
-{
-    string num = n;
-    ll dec_value = 0;
-    int base = 1;
-    int len = num.length();
-    for (int i = len - 1; i >= 0; i--)
-    {
-        if (num[i] == '1')
-            dec_value += base;
-        base = base * 2;
-    }
-    return dec_value;
-}
-ll fpow(ll x, ll y)
-{
-    ll res = 1;
-    x = x % mod;
-    if (x == 0)
-        return 0;
-    while (y > 0)
-    {
-        if (y & 1LL)
-            res = (res * x) % mod;
-        y = y >> 1LL;
-        x = (x * x) % mod;
-    }
-    return res;
-}
-ll inv(ll a, ll p = mod) { return fpow(a, p - 2); }
-// Utility functions
-template <typename T>
-void iv(vector<T> &v, int n)
-{
-    // ll n = v.size();
-    fo(i, n) cin >> v[i];
-}
-template <typename T>
-void pv(vector<T> &v, int n)
-{
-    // ll n = v.size();
-    fo(i, n) cout << v[i] << " ";
-    cout << "
-";
-}
-template <typename T>
-ll sv(vector<T> &v, int n)
-{
-    // ll n = v.size();
-    ll s = 0;
-    fo(i, n) s += v[i];
-    return s;
+    for (auto &x : v)
+        in >> x;
+    return in;
 }
  
-// conversions
-ll str_to_num(string s)
+template <class T>
+istream &operator>>(istream &in, vector<vector<T>> &v)
 {
-    return stoi(s);
+    for (auto &r : v)
+        for (auto &x : r)
+            in >> x;
+    return in;
 }
-string num_to_str(ll num)
+ 
+template <class T>
+istream &operator>>(istream &in, deque<T> &v)
 {
-    return to_string(num);
+    for (auto &x : v)
+        in >> x;
+    return in;
 }
+ 
+template <class T, size_t N>
+istream &operator>>(istream &in, array<T, N> &a)
+{
+    for (auto &x : a)
+        in >> x;
+    return in;
+}
+/* ===================== RAW OUTPUT OVERLOADS ===================== */
+ 
+template <class A, class B>
+ostream &operator<<(ostream &os, const pair<A, B> &p)
+{
+    return os << p.first << " " << p.second;
+}
+ 
+template <class T>
+ostream &operator<<(ostream &os, const vector<T> &v)
+{
+    for (auto &x : v)
+        os << x << " ";
+    return os;
+}
+ 
+template <class T>
+ostream &operator<<(ostream &os, const vector<vector<T>> &v)
+{
+    for (auto &r : v)
+    {
+        for (auto &x : r)
+            os << x << " ";
+        os << '
+';
+    }
+    return os;
+}
+ 
+template <class T>
+ostream &operator<<(ostream &os, const deque<T> &v)
+{
+    for (auto &x : v)
+        os << x << " ";
+    return os;
+}
+ 
+template <class T, size_t N>
+ostream &operator<<(ostream &os, const array<T, N> &a)
+{
+    for (auto &x : a)
+        os << x << " ";
+    return os;
+}
+ 
+//--------------Snippet area-------------
+ 
+//--------------End Snippet area---------
+ 
+// Constants
+#define PI 3.1415926535897932384626
+#define linf 1e18
+#define inf INT_MAX
+#define EPS 1e-9
+ 
+#define int long long
+ 
 void solve();
 signed main()
 {
-    startTime = clock();
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
+    fast_io;
     int t = 1;
     // cin >> t;
-    for (int i = 1; i <= t; i++)
-    {
-        eprintf("--- Case #%d start ---
-", i);
-        // eprintf("Case #%d: ", i);
+    ff(i, 1, t)
         solve();
-        eprintf("--- Case #%d end ---
-", i);
-        eprintf("time = %.5lf
-", getCurrentTime());
-        eprintf("++++++++++++++++++++
-");
-    }
- 
     return 0;
 }
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
- 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#pragma endregion r1;
-//----------------------------------------------------------------------------------------------------------------------
  
 void solve()
 {
     ll n, k;
     cin >> n >> k;
-    vector<int> v(n);
+    vll v(n);
     int count = 0;
-    for (int i = 0; i < n; i++)
-    {
-        cin >> v[i];
-    }
-    for (int i = 0; i < n; i++)
-    {
-        if (v[i] >= v[k - 1] and v[i] > 0)
-            count++;
-    }
-    cout << count << endl;
+    cin >> v;
+    ff(i, 0, n - 1) if (v[i] >= v[k - 1] and v[i] > 0)
+        count++;
+    print(count);
 }
+// ======================================================
+//  Thank You for Viewing
+//  Hope this code helped you today
+//  Reminder    : It's a game - we are awarded points.
+//                   First to reach 1,000 points wins a tank!
+//  Inspiration : Life is beautiful (1997)
+//
+//  Have a great day & happy coding.
+// ======================================================
