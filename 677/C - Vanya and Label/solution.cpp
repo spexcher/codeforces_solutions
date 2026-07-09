@@ -1,0 +1,424 @@
+// Pragmas
+// #pragma GCC target("avx2")
+#pragma GCC optimization("O3")
+// #pragma GCC optimization ("O2")
+//  #pragma GCC target("unroll-loops")
+ 
+// Includes and namespaces
+#include <bits/stdc++.h>
+#include <chrono>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+using namespace std;
+using namespace __gnu_pbds;
+ 
+// Ordered Set and Ordered Map
+template <typename T>
+using oset = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+template <class key, class value, class cmp = less_equal<key>>
+using omap = tree<key, value, cmp, rb_tree_tag, tree_order_statistics_node_update>;
+ 
+// 1D Stuff
+using ll = long long;
+using ld = long double;
+using i64 = long long;
+using pii = pair<int, int>;
+using pll = pair<ll, ll>;
+using vi = vector<int>;
+using vll = vector<ll>;
+using vb = vector<bool>;
+using vc = vector<char>;
+using vs = vector<string>;
+ 
+// 2D Vectors
+using vvi = vector<vi>;
+using vvll = vector<vll>;
+using vvb = vector<vb>;
+using vvc = vector<vc>;
+using vpii = vector<pii>;
+using vpll = vector<pll>;
+ 
+// Maps
+using mii = map<int, int>;
+using mci = map<char, int>;
+using msi = map<string, int>;
+using umii = unordered_map<int, int>;
+using umci = unordered_map<char, int>;
+using umsi = unordered_map<string, int>;
+using mll = map<ll, ll>;
+using mcll = map<char, ll>;
+using msll = map<string, ll>;
+using umll = unordered_map<ll, ll>;
+using umcll = unordered_map<char, ll>;
+using umsll = unordered_map<string, ll>;
+ 
+// Sets
+using si = set<int>;
+using sll = set<ll>;
+using sc = set<char>;
+ 
+// Heaps
+template <class T>
+using min_heap = priority_queue<T, vector<T>, greater<T>>;
+template <class T>
+using max_heap = priority_queue<T>;
+ 
+// Shorthands
+#define F first
+#define S second
+#define eb emplace_back
+#define pb push_back
+#define ppb pop_back
+#define all(x) (x).begin(), (x).end()
+#define rall(x) (x).rbegin(), (x).rend()
+ 
+// Functions
+#define sqrt(x) sqrtl((x))
+#define ceil(x) ceill((x))
+#define abs(x) labs((x))
+#define floor(x) floorl((x))
+#define ceildiv(a, b) ((a + b - 1) / b)
+#define sz(x) (ll) x.size()
+#define getunique(v) sort(all(v)), v.erase(unique(all(v)), v.end())
+#define setbits(n) __builtin_popcountll(n)
+#define counttz(n) __builtin_ctzll(n)
+#define countlz(n) __builtin_clzll(n)
+#define print(x) cout << x << "
+"
+#define upper(s1) transform(s1.begin(), s1.end(), s1.begin(), ::toupper)
+#define lower(s1) transform(s1.begin(), s1.end(), s1.begin(), ::tolower)
+#define sum(v) accumulate(all(v), 0ll)
+#define maxe(v) *max_element(v.begin(), v.end())
+#define mine(v) *min_element(v.begin(), v.end())
+ 
+// Constants
+#define PI 3.1415926535897932384626
+#define linf 1e18
+#define inf INT_MAX
+#define EPS = 1e-9
+ 
+#define fast_io                       \
+    ios_base::sync_with_stdio(false); \
+    cin.tie(NULL);                    \
+    cout.tie(NULL);                   \
+    cout << fixed << setprecision(25)
+ 
+// Prints
+#define py cout << "YES
+"
+#define pm cout << "-1
+"
+#define pn cout << "NO
+"
+#define pm cout << "-1
+"
+#define pl cout << '
+'
+#define nl '
+'
+#define sp ' '
+ 
+// Loops
+#define ff(i, k, n) for (int i = k; i <= n; i++)
+#define fr(i, k, n) for (int i = k; i >= n; i -= 1)
+#define rep(i, k, n, s) for (int i = k; i <= n; i += s)
+#define per(i, k, n, s) for (int i = k; i >= n; i -= s)
+ 
+// Debug Template Input and Output overloads
+#define debarr(a, n)            \
+    cout << #a << " : ";        \
+    for (int i = 0; i < n; i++) \
+        cerr << a[i] << " ";    \
+    cerr << endl;
+#define debmat(mat, row, col)         \
+    cout << #mat << " :
+";           \
+    for (int i = 0; i < row; i++)     \
+    {                                 \
+        for (int j = 0; j < col; j++) \
+            cerr << mat[i][j] << " "; \
+        cerr << endl;                 \
+    }
+#define pr(...) dbs(#__VA_ARGS__, __VA_ARGS__)
+template <typename T, typename U>
+istream &operator>>(istream &in, pair<T, U> &p) { return in >> p.ff >> p.ss; }
+template <typename T>
+istream &operator>>(istream &in, vector<T> &v)
+{
+    for (auto &x : v)
+        in >> x;
+    return in;
+}
+template <class S, class T>
+ostream &operator<<(ostream &os, const pair<S, T> &p) { return os << "(" << p.first << ", " << p.second << ")"; }
+template <class T>
+ostream &operator<<(ostream &os, const vector<T> &p)
+{
+    // os << "[ ";
+    for (auto &it : p)
+        os << it << ' ';
+    // os << " ]";
+    return os;
+}
+template <class T>
+ostream &operator<<(ostream &os, const unordered_set<T> &p)
+{
+    os << "[ ";
+    for (auto &it : p)
+        os << it << " ";
+    return os << "]";
+}
+template <class S, class T>
+ostream &operator<<(ostream &os, const unordered_map<S, T> &p)
+{
+    os << "[ ";
+    for (auto &it : p)
+        os << it << " ";
+    return os << "]";
+}
+template <class T>
+ostream &operator<<(ostream &os, const set<T> &p)
+{
+    os << "[ ";
+    for (auto &it : p)
+        os << it << " ";
+    return os << "]";
+}
+template <class T>
+ostream &operator<<(ostream &os, const multiset<T> &p)
+{
+    os << "[ ";
+    for (auto &it : p)
+        os << it << " ";
+    return os << "]";
+}
+template <class S, class T>
+ostream &operator<<(ostream &os, const map<S, T> &p)
+{
+    os << "[ ";
+    for (auto &it : p)
+        os << it << " ";
+    return os << "]";
+}
+template <class T>
+void dbs(string str, T t) { cerr << str << " : " << t << "
+"; }
+template <class T, class... S>
+void dbs(string str, T t, S... s)
+{
+    int idx = str.find(',');
+    cerr << str.substr(0, idx) << " : " << t << ",";
+    dbs(str.substr(idx + 1), s...);
+}
+template <class T>
+void prc(T a, T b)
+{
+    cerr << "[";
+    for (T i = a; i != b; ++i)
+    {
+        if (i != a)
+            cerr << ", ";
+        cerr << *i;
+    }
+    cerr << "]
+";
+}
+//--------------Snippet area-------------
+unordered_map<char, int> mp;
+ 
+void buildMap()
+{
+    // digits '0' to '9' → 0–9
+    for (char c = '0'; c <= '9'; c++)
+        mp[c] = c - '0';
+ 
+    // uppercase 'A' to 'Z' → 10–35
+    for (char c = 'A'; c <= 'Z'; c++)
+        mp[c] = 10 + (c - 'A');
+ 
+    // lowercase 'a' to 'z' → 36–61
+    for (char c = 'a'; c <= 'z'; c++)
+        mp[c] = 36 + (c - 'a');
+ 
+    // '-' → 62
+    mp['-'] = 62;
+ 
+    // '_' → 63
+    mp['_'] = 63;
+}
+namespace number_theory
+{
+    ll mod = 1000000007; // 1000000007 1000000009 998244353 2147483647
+    ll fpow(ll x, ll y, ll m = mod)
+    {
+        if (x == 0)
+        {
+            if (y == 0)
+                return 1ll;
+            else
+                return 0ll;
+        }
+        ll res = 1LL;
+        // x = x % m;
+        if (x == 0LL)
+            return 1LL;
+        while (y > 0LL)
+        {
+            if (y & 1LL)
+                res = (res * x) % m;
+            y = y >> 1LL;
+            x = (x * x) % m;
+        }
+        return res;
+    }
+    bool isPowerOfTwo(int n)
+    {
+        if (n == 0)
+            return false;
+        return (ceil(log2(n)) == floor(log2(n)));
+    }
+    ll inv(ll a, ll p = mod) { return fpow(a, p - 2); }
+    bool isPerfectSquare(ll x)
+    {
+        if (x >= 0)
+        {
+            ll sr = sqrt(x);
+            return (sr * sr == x);
+        }
+        return false;
+    }
+    ll gcd(ll x, ll y)
+    {
+        if (x == 0)
+            return y;
+        if (y == 0)
+            return x;
+        return gcd(y, x % y);
+    }
+    bool isprime(ll n)
+    {
+        if (n <= 1)
+            return false;
+        if (n <= 3)
+            return true;
+ 
+        if (n % 2 == 0 || n % 3 == 0)
+            return false;
+ 
+        for (ll i = 5; i * i <= n; i += 6)
+            if (n % i == 0 || n % (i + 2) == 0)
+                return false;
+ 
+        return true;
+    }
+ 
+    bool prime[15000105];
+    void sieve(int n)
+    {
+        for (ll i = 0; i <= n; i++)
+            prime[i] = 1;
+        for (ll p = 2; p * p <= n; p++)
+        {
+            if (prime[p] == true)
+            {
+                for (ll i = p * p; i <= n; i += p)
+                    prime[i] = false;
+            }
+        }
+        prime[1] = prime[0] = 0;
+    }
+ 
+    vector<ll> primelist;
+    bool __primes_generated__ = 0;
+ 
+    void genprimes(int n)
+    {
+        __primes_generated__ = 1;
+        sieve(n + 1);
+        for (ll i = 2; i <= n; i++)
+            if (prime[i])
+                primelist.push_back(i);
+    }
+ 
+    vector<ll> factors(ll n)
+    {
+        if (!__primes_generated__)
+        {
+            cerr << "Call genprimes you dope" << endl;
+            exit(1);
+        }
+        vector<ll> facs;
+ 
+        for (ll i = 0; primelist[i] * primelist[i] <= n && i < primelist.size(); i++)
+        {
+            if (n % primelist[i] == 0)
+            {
+                while (n % primelist[i] == 0)
+                {
+                    n /= primelist[i];
+                    facs.push_back(primelist[i]);
+                }
+            }
+        }
+        if (n > 1)
+        {
+            facs.push_back(n);
+        }
+        sort(facs.begin(), facs.end());
+        return facs;
+    }
+ 
+    vector<ll> getdivs(ll n)
+    {
+        vector<ll> divs;
+        for (ll i = 1; i * i <= n; i++)
+        {
+            if (n % i == 0)
+            {
+                divs.push_back(i);
+                divs.push_back(n / i);
+            }
+        }
+ 
+        getunique(divs);
+        return divs;
+    }
+}
+ 
+using namespace number_theory;
+ 
+//--------------End Snippet area---------
+#define int long long
+void solve();
+signed main()
+{
+    fast_io;
+    buildMap();
+    int t = 1;
+    // cin >> t;
+    ff(i, 1, t)
+        solve();
+    return 0;
+}
+ 
+void solve()
+{
+    string x;
+    cin >> x;
+    ll ones = 0ll;
+    for (char u : x)
+    {
+        ll temp = mp[u];
+        ll o = 0ll;
+        while (temp != 0)
+        {
+            if (1 & temp)
+                o++;
+            temp >>= 1;
+        }
+        ones += o;
+    }
+    pr(ones);
+    ll req = 6 * sz(x);
+    print(fpow(3, req - ones));
+}
