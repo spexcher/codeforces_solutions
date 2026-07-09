@@ -1,24 +1,385 @@
-<h2><a href="https://codeforces.com/contest/1878/problem/A" target="_blank" rel="noopener noreferrer">1878A — How Much Does Daytona Cost?</a></h2>
-
-| | |
-|---|---|
-| **Difficulty** | 800 |
-| **Language** | C++17 (GCC 7-32) |
-| **Verdict** | ✅ Accepted |
-| **Problem Link** | [Codeforces 1878A](https://codeforces.com/contest/1878/problem/A) |
-
-## Topics
-`greedy`
-
----
-
-## Problem Statement
-
-<div class="header"><div class="title">A. How Much Does Daytona Cost?</div><div class="time-limit"><div class="property-title">time limit per test</div>1 second</div><div class="memory-limit"><div class="property-title">memory limit per test</div>256 megabytes</div><div class="input-file input-standard"><div class="property-title">input</div>standard input</div><div class="output-file output-standard"><div class="property-title">output</div>standard output</div></div><div><p>We define an integer to be <span class="tex-font-style-it">the most common</span> on a subsegment, if its number of occurrences on that subsegment is larger than the number of occurrences of any other integer in that subsegment. A subsegment of an array is a consecutive segment of elements in the array <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-1"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-2">a</span></span></span>$a$.</p><p>Given an array <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-3"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-4">a</span></span></span>$a$ of size <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-5"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-6">n</span></span></span>$n$, and an integer <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-7"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-8">k</span></span></span>$k$, determine if there exists a non-empty subsegment of <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-9"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-10">a</span></span></span>$a$ where <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-11"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-12">k</span></span></span>$k$ is <span class="tex-font-style-it">the most common element</span>.</p></div><div class="input-specification"><div class="section-title">Input</div><p>Each test consists of multiple test cases. The first line contains a single integer <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-13"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-14">t</span></span></span>$t$ (<span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-15"><span class="MJXp-mn" id="MJXp-Span-16">1</span><span class="MJXp-mo" id="MJXp-Span-17" style="margin-left: 0.333em; margin-right: 0.333em;">≤</span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-18">t</span><span class="MJXp-mo" id="MJXp-Span-19" style="margin-left: 0.333em; margin-right: 0.333em;">≤</span><span class="MJXp-mn" id="MJXp-Span-20">1000</span></span></span>$1 \le t \le 1000$) — the number of test cases. The description of test cases follows.</p><p>The first line of each test case contains two integers <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-21"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-22">n</span></span></span>$n$ and <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-23"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-24">k</span></span></span>$k$ (<span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-25"><span class="MJXp-mn" id="MJXp-Span-26">1</span><span class="MJXp-mo" id="MJXp-Span-27" style="margin-left: 0.333em; margin-right: 0.333em;">≤</span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-28">n</span><span class="MJXp-mo" id="MJXp-Span-29" style="margin-left: 0.333em; margin-right: 0.333em;">≤</span><span class="MJXp-mn" id="MJXp-Span-30">100</span></span></span>$1 \le n \le 100$, <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-31"><span class="MJXp-mn" id="MJXp-Span-32">1</span><span class="MJXp-mo" id="MJXp-Span-33" style="margin-left: 0.333em; margin-right: 0.333em;">≤</span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-34">k</span><span class="MJXp-mo" id="MJXp-Span-35" style="margin-left: 0.333em; margin-right: 0.333em;">≤</span><span class="MJXp-mn" id="MJXp-Span-36">100</span></span></span>$1 \le k \le 100$) — the number of elements in array and the element which must be <span class="tex-font-style-it">the most common</span>.</p><p>The second line of each test case contains <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-37"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-38">n</span></span></span>$n$ integers <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-39"><span class="MJXp-msubsup" id="MJXp-Span-40"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-41" style="margin-right: 0.05em;">a</span><span class="MJXp-mn MJXp-script" id="MJXp-Span-42" style="vertical-align: -0.4em;">1</span></span></span></span>$a_1$, <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-43"><span class="MJXp-msubsup" id="MJXp-Span-44"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-45" style="margin-right: 0.05em;">a</span><span class="MJXp-mn MJXp-script" id="MJXp-Span-46" style="vertical-align: -0.4em;">2</span></span></span></span>$a_2$, <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-47"><span class="MJXp-msubsup" id="MJXp-Span-48"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-49" style="margin-right: 0.05em;">a</span><span class="MJXp-mn MJXp-script" id="MJXp-Span-50" style="vertical-align: -0.4em;">3</span></span></span></span>$a_3$, <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-51"><span class="MJXp-mo" id="MJXp-Span-52" style="margin-left: 0em; margin-right: 0em;">…</span></span></span>$\dots$, <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-53"><span class="MJXp-msubsup" id="MJXp-Span-54"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-55" style="margin-right: 0.05em;">a</span><span class="MJXp-mi MJXp-italic MJXp-script" id="MJXp-Span-56" style="vertical-align: -0.4em;">n</span></span></span></span>$a_n$ (<span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-57"><span class="MJXp-mn" id="MJXp-Span-58">1</span><span class="MJXp-mo" id="MJXp-Span-59" style="margin-left: 0.333em; margin-right: 0.333em;">≤</span><span class="MJXp-msubsup" id="MJXp-Span-60"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-61" style="margin-right: 0.05em;">a</span><span class="MJXp-mi MJXp-italic MJXp-script" id="MJXp-Span-62" style="vertical-align: -0.4em;">i</span></span><span class="MJXp-mo" id="MJXp-Span-63" style="margin-left: 0.333em; margin-right: 0.333em;">≤</span><span class="MJXp-mn" id="MJXp-Span-64">100</span></span></span>$1 \le a_i \le 100$) — elements of the array.</p></div><div class="output-specification"><div class="section-title">Output</div><p>For each test case output "<span class="tex-font-style-tt">YES</span>" if there exists a subsegment in which <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-65"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-66">k</span></span></span>$k$ is <span class="tex-font-style-it">the most common</span> element, and "<span class="tex-font-style-tt">NO</span>" otherwise.</p><p>You can output the answer in any case (for example, the strings "<span class="tex-font-style-tt">yEs</span>", "<span class="tex-font-style-tt">yes</span>", "<span class="tex-font-style-tt">Yes</span>", and "<span class="tex-font-style-tt">YES</span>" will be recognized as a positive answer).</p></div><div class="sample-tests"><div class="section-title">Example</div><div class="sample-test"><div class="input"><div class="title">Input<div title="Copy" data-clipboard-target="#id006239123364304082" id="id002570351375079527" class="input-output-copier">Copy</div></div><pre id="id006239123364304082"><div class="test-example-line test-example-line-even test-example-line-0">7</div><div class="test-example-line test-example-line-odd test-example-line-1">5 4</div><div class="test-example-line test-example-line-odd test-example-line-1">1 4 3 4 1</div><div class="test-example-line test-example-line-even test-example-line-2">4 1</div><div class="test-example-line test-example-line-even test-example-line-2">2 3 4 4</div><div class="test-example-line test-example-line-odd test-example-line-3">5 6</div><div class="test-example-line test-example-line-odd test-example-line-3">43 5 60 4 2</div><div class="test-example-line test-example-line-even test-example-line-4">2 5</div><div class="test-example-line test-example-line-even test-example-line-4">1 5</div><div class="test-example-line test-example-line-odd test-example-line-5">4 1</div><div class="test-example-line test-example-line-odd test-example-line-5">5 3 3 1</div><div class="test-example-line test-example-line-even test-example-line-6">1 3</div><div class="test-example-line test-example-line-even test-example-line-6">3</div><div class="test-example-line test-example-line-odd test-example-line-7">5 3</div><div class="test-example-line test-example-line-odd test-example-line-7">3 4 1 5 5</div></pre></div><div class="output"><div class="title">Output<div title="Copy" data-clipboard-target="#id0061878921140223" id="id003686110097416183" class="input-output-copier">Copy</div></div><pre id="id0061878921140223">YES
-NO
-NO
-YES
-YES
-YES
-YES
-</pre></div></div></div><div class="note"><div class="section-title">Note</div><p>In the first test case we need to check if there is a subsegment where the <span class="tex-font-style-it">most common element</span> is <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-67"><span class="MJXp-mn" id="MJXp-Span-68">4</span></span></span>$4$.</p><p>On the subsegment <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-69"><span class="MJXp-mo" id="MJXp-Span-70" style="margin-left: 0em; margin-right: 0em;">[</span><span class="MJXp-mn" id="MJXp-Span-71">2</span><span class="MJXp-mo" id="MJXp-Span-72" style="margin-left: 0em; margin-right: 0.222em;">,</span><span class="MJXp-mn" id="MJXp-Span-73">5</span><span class="MJXp-mo" id="MJXp-Span-74" style="margin-left: 0em; margin-right: 0em;">]</span></span></span>$[2,5]$ the elements are <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-75"><span class="MJXp-mn" id="MJXp-Span-76">4</span><span class="MJXp-mo" id="MJXp-Span-77" style="margin-left: 0em; margin-right: 0.222em;">,</span><span class="MJXp-mtext" id="MJXp-Span-78"> </span><span class="MJXp-mn" id="MJXp-Span-79">3</span><span class="MJXp-mo" id="MJXp-Span-80" style="margin-left: 0em; margin-right: 0.222em;">,</span><span class="MJXp-mtext" id="MJXp-Span-81"> </span><span class="MJXp-mn" id="MJXp-Span-82">4</span><span class="MJXp-mo" id="MJXp-Span-83" style="margin-left: 0em; margin-right: 0.222em;">,</span><span class="MJXp-mtext" id="MJXp-Span-84"> </span><span class="MJXp-mn" id="MJXp-Span-85">1</span></span></span>$4, \ 3, \ 4, \ 1$. </p><ul><li> <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-86"><span class="MJXp-mn" id="MJXp-Span-87">4</span></span></span>$4$ appears <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-88"><span class="MJXp-mn" id="MJXp-Span-89">2</span></span></span>$2$ times;</li><li> <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-90"><span class="MJXp-mn" id="MJXp-Span-91">1</span></span></span>$1$ appears <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-92"><span class="MJXp-mn" id="MJXp-Span-93">1</span></span></span>$1$ time;</li><li> <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-94"><span class="MJXp-mn" id="MJXp-Span-95">3</span></span></span>$3$ appears <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-96"><span class="MJXp-mn" id="MJXp-Span-97">1</span></span></span>$1$ time.</li></ul><p>This means that <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-98"><span class="MJXp-mn" id="MJXp-Span-99">4</span></span></span>$4$ is the <span class="tex-font-style-it">most common element</span> on the subsegment <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-100"><span class="MJXp-mo" id="MJXp-Span-101" style="margin-left: 0em; margin-right: 0em;">[</span><span class="MJXp-mn" id="MJXp-Span-102">2</span><span class="MJXp-mo" id="MJXp-Span-103" style="margin-left: 0em; margin-right: 0.222em;">,</span><span class="MJXp-mn" id="MJXp-Span-104">5</span><span class="MJXp-mo" id="MJXp-Span-105" style="margin-left: 0em; margin-right: 0em;">]</span></span></span>$[2, 5]$, so there exists a subsegment where <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-106"><span class="MJXp-mn" id="MJXp-Span-107">4</span></span></span>$4$ is the <span class="tex-font-style-it">most common element</span>.</p></div>
+#define MOD 1000000007
+ 
+// @prefix pp
+// @description spexcher's template with testcases
+ 
+#define MOD 1000000007
+/*-------------------------------Start Snippet---------------------------------
+AUTHOR: spexcher
+Name: Gourab Modak
+email: spexcher@gmail.com
+Institution: Indian Institute of Technology Madras(BS UG Data Science 4 year) + Jalpaiguri Government Engineering College (B. Tech UG CSE 4 year)
+Github: https://github.com/gauravthedeveloper/
+linkedin : https://www.linkedin.com/in/gourabmodak/
+codeforces : https://codeforces.com/profile/spexcher/
+codechef : https://www.codechef.com/users/spexcher/
+leetcode : https://leetcode.com/spexcher/
+------------------------------------------------------------------------------------*/
+// C
+#ifndef _GLIBCXX_NO_ASSERT
+#include <cassert>
+#endif
+#include <cctype>
+#include <cerrno>
+#include <cfloat>
+#include <ciso646>
+#include <climits>
+#include <clocale>
+#include <cmath>
+#include <csetjmp>
+#include <csignal>
+#include <cstdarg>
+#include <cstddef>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <ctime>
+ 
+#if __cplusplus >= 201103L
+#include <ccomplex>
+#include <cfenv>
+#include <cinttypes>
+// #include <cstdalign>
+#include <cstdbool>
+#include <cstdint>
+#include <ctgmath>
+#include <cwchar>
+#include <cwctype>
+#endif
+ 
+// C++
+#include <algorithm>
+#include <bitset>
+#include <complex>
+#include <deque>
+#include <exception>
+#include <fstream>
+#include <functional>
+#include <iomanip>
+#include <ios>
+#include <iosfwd>
+#include <iostream>
+#include <istream>
+#include <iterator>
+#include <limits>
+#include <list>
+#include <locale>
+#include <map>
+#include <memory>
+#include <new>
+#include <numeric>
+#include <ostream>
+#include <queue>
+#include <set>
+#include <sstream>
+#include <stack>
+#include <stdexcept>
+#include <streambuf>
+#include <string>
+#include <typeinfo>
+#include <utility>
+#include <valarray>
+#include <vector>
+ 
+#if __cplusplus >= 201103L
+#include <array>
+#include <atomic>
+#include <chrono>
+#include <condition_variable>
+#include <forward_list>
+#include <future>
+#include <initializer_list>
+#include <mutex>
+#include <random>
+#include <ratio>
+#include <regex>
+#include <scoped_allocator>
+#include <system_error>
+#include <thread>
+#include <tuple>
+#include <typeindex>
+#include <type_traits>
+#include <unordered_map>
+#include <unordered_set>
+#endif
+#include <random>
+using namespace std;
+#ifndef ONLINE_JUDGE
+#define eprintf(...)                  \
+    {                                 \
+        fprintf(stderr, __VA_ARGS__); \
+        fflush(stderr);               \
+    }
+#else
+#define eprintf(...) 42
+#endif
+using ll = long long;
+using ld = long double;
+using uint = unsigned int;
+using ull = unsigned long long;
+template <typename T>
+using pair2 = pair<T, T>;
+using pii = pair<int, int>;
+using pli = pair<ll, int>;
+using pll = pair<ll, ll>;
+#define ll long long
+#define ull unsigned long long
+#define lld long double
+#define mod MOD
+#define eb emplace_back
+#define pb emplace_back
+#define int long long
+#define vi vector<ll>
+#define vb vector<bool>
+#define vvi vector<vector<ll>>
+#define vvb vector<vector<bool>>
+#define vvpii vector<vector<pii>>
+#define vpii vector<pii>
+#define lb lower_bound
+#define ub upper_bound
+#define mp make_pair
+#define all(x) (x).begin(), (x).end()
+#define ff first
+#define ss second
+#define spre(x) cout << fixed << setprecision(x)
+#define PI 3.1415926535897932384626
+#define py cout << "YES
+"
+#define pm cout << "-1
+"
+#define pn cout << "NO
+"
+#define pm cout << "-1
+"
+#define pl cout << "
+"
+#define nl "
+"
+#define sp " "
+#define deb(x) cout << #x << "=" << x << endl
+#define upper(s1) transform(s1.begin(), s1.end(), s1.begin(), ::toupper)
+#define lower(s1) transform(s1.begin(), s1.end(), s1.begin(), ::tolower)
+#define sz(x) (ll) x.size()
+#define deb2(x, y) cout << #x << "=" << x << "," << #y << "=" << y << endl
+#define gc getchar_unlocked
+#define fo(i, n) for (int i = 0; i < n; i++)
+#define forr(i, n) for (int i = n - 1; i >= 0; i--)
+#define Fo(i, k, n) for (i = k; k < n ? i < n : i > n; k < n ? i += 1 : i -= 1)
+clock_t startTime;
+mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
+double getCurrentTime()
+{
+    return (double)(clock() - startTime) / CLOCKS_PER_SEC;
+}
+ll myRand(ll B)
+{
+    return (ull)rng() % B;
+}
+// Check
+bool isPrime(ll n)
+{
+    if (n <= 1)
+        return false;
+    if (n <= 3)
+        return true;
+    if (n % 2 == 0 || n % 3 == 0)
+        return false;
+    for (int i = 5; i * i <= n; i = i + 6)
+        if (n % i == 0 || n % (i + 2) == 0)
+            return false;
+    return true;
+}
+bool isPowerOfTwo(int n)
+{
+    if (n == 0)
+        return false;
+    return (ceil(log2(n)) == floor(log2(n)));
+}
+bool isPerfectSquare(ll x)
+{
+    if (x >= 0)
+    {
+        ll sr = sqrt(x);
+        return (sr * sr == x);
+    }
+    return false;
+}
+ 
+// Bits
+string decToBinary(int n)
+{
+    string s = "";
+    while (n > 0)
+    {
+        s = to_string(n % 2) + s;
+        n = n / 2;
+    }
+    return s;
+}
+ll binaryToDecimal(string n)
+{
+    string num = n;
+    ll dec_value = 0;
+    int base = 1;
+    int len = num.length();
+    for (int i = len - 1; i >= 0; i--)
+    {
+        if (num[i] == '1')
+            dec_value += base;
+        base = base * 2;
+    }
+    return dec_value;
+}
+ll fpow(ll x, ll y)
+{
+    ll res = 1;
+    x = x % mod;
+    if (x == 0)
+        return 0;
+    while (y > 0)
+    {
+        if (y & 1LL)
+            res = (res * x) % mod;
+        y = y >> 1LL;
+        x = (x * x) % mod;
+    }
+    return res;
+}
+ll inv(ll a, ll p = mod) { return fpow(a, p - 2); }
+// conversions
+ll str_to_num(string s)
+{
+    return stoi(s);
+}
+string num_to_str(ll num)
+{
+    return to_string(num);
+}
+#ifndef ONLINE_JUDGE
+#define debug(x)       \
+    cerr << #x << " "; \
+    _print(x);         \
+    cerr << endl;
+#else
+#define debug(x)
+#endif
+ 
+void _print(ll t)
+{
+    cerr << t;
+}
+void _print(string t) { cerr << t; }
+void _print(char t) { cerr << t; }
+void _print(lld t) { cerr << t; }
+void _print(double t) { cerr << t; }
+void _print(ull t) { cerr << t; }
+ 
+template <class T, class V>
+void _print(pair<T, V> p);
+template <class T>
+void _print(vector<T> v);
+template <class T>
+void _print(set<T> v);
+template <class T, class V>
+void _print(map<T, V> v);
+template <class T>
+void _print(multiset<T> v);
+template <class T, class V>
+void _print(pair<T, V> p)
+{
+    cerr << "{";
+    _print(p.ff);
+    cerr << ",";
+    _print(p.ss);
+    cerr << "}";
+}
+template <class T>
+void _print(vector<T> v)
+{
+    cerr << "[ ";
+    for (T i : v)
+    {
+        _print(i);
+        cerr << " ";
+    }
+    cerr << "]";
+}
+template <class T>
+void _print(set<T> v)
+{
+    cerr << "[ ";
+    for (T i : v)
+    {
+        _print(i);
+        cerr << " ";
+    }
+    cerr << "]";
+}
+template <class T>
+void _print(multiset<T> v)
+{
+    cerr << "[ ";
+    for (T i : v)
+    {
+        _print(i);
+        cerr << " ";
+    }
+    cerr << "]";
+}
+template <class T, class V>
+void _print(map<T, V> v)
+{
+    cerr << "[ ";
+    for (auto i : v)
+    {
+        _print(i);
+        cerr << " ";
+    }
+    cerr << "]";
+}
+void solve();
+signed main()
+{
+    startTime = clock();
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    int t = 1;
+    cin >> t;
+    for (int i = 1; i <= t; i++)
+    {
+        eprintf("--- Case #%lld start ---
+", i);
+        eprintf("Case #%lld: ", i);
+        solve();
+        eprintf("--- Case #%lld end ---
+", i);
+        eprintf("time = %.5lf
+", getCurrentTime());
+        eprintf("++++++++++++++++++++
+");
+ 
+        // solve();
+    }
+ 
+    return 0;
+}
+//-----------------------------------------End Snippet----------------------------------------
+ 
+void solve()
+{
+    int n, k;
+    cin >> n >> k;
+    vi v(n);
+    bool present = false;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> v[i];
+        if (v[i] == k)
+            present = true;
+    }
+    if (present)
+        py;
+    else
+        pn;
+}
