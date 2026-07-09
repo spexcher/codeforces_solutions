@@ -1,0 +1,24 @@
+<h2><a href="https://codeforces.com/contest/1968/problem/A" target="_blank" rel="noopener noreferrer">1968A — Maximize?</a></h2>
+
+| | |
+|---|---|
+| **Difficulty** | 800 |
+| **Language** | C++20 (GCC 13-64) |
+| **Verdict** | ✅ Accepted |
+| **Problem Link** | [Codeforces 1968A](https://codeforces.com/contest/1968/problem/A) |
+
+## Topics
+`brute force` `math` `number theory`
+
+---
+
+## Problem Statement
+
+<div class="header"><div class="title">A. Maximize?</div><div class="time-limit"><div class="property-title">time limit per test</div>2 seconds</div><div class="memory-limit"><div class="property-title">memory limit per test</div>256 megabytes</div><div class="input-file input-standard"><div class="property-title">input</div>standard input</div><div class="output-file output-standard"><div class="property-title">output</div>standard output</div></div><div><p>You are given an integer <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-1"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-2">x</span></span></span>$x$. Your task is to find any integer <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-3"><span class="MJXp-mi MJXp-italic" id="MJXp-Span-4">y</span></span></span>$y$ <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-5"><span class="MJXp-mo" id="MJXp-Span-6" style="margin-left: 0em; margin-right: 0em;">(</span><span class="MJXp-mn" id="MJXp-Span-7">1</span><span class="MJXp-mo" id="MJXp-Span-8" style="margin-left: 0.333em; margin-right: 0.333em;">≤</span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-9">y</span><span class="MJXp-mo" id="MJXp-Span-10" style="margin-left: 0.333em; margin-right: 0.333em;"><</span><span class="MJXp-mi MJXp-italic" id="MJXp-Span-11">x</span><span class="MJXp-mo" id="MJXp-Span-12" style="margin-left: 0em; margin-right: 0em;">)</span></span></span>$(1\le y \lt x)$ such that <span class="MathJax_Preview" style="color: inherit;"><span class="MJXp-math" id="MJXp-Span-13"><span class="MJXp-mo" id="MJXp-Span-14">gcd</span></span></span>$\gcd(x,y)+y$ is maximum possible.</p><p><span class="tex-font-style-bf">Note that if there is more than one <span class="MathJax_Preview">y</span>$y$ which satisfies the statement, you are allowed to find any.</span></p><p><span class="MathJax_Preview">\gcd(a,b)</span>$\gcd(a,b)$ is the Greatest Common Divisor of <span class="MathJax_Preview">a</span>$a$ and <span class="MathJax_Preview">b</span>$b$. For example, <span class="MathJax_Preview">\gcd(6,4)=2</span>$\gcd(6,4)=2$.</p></div><div class="input-specification"><div class="section-title">Input</div><p>The first line contains a single integer <span class="MathJax_Preview">t</span>$t$ (<span class="MathJax_Preview">1 \le t \le 1000</span>$1 \le t \le 1000$) — the number of test cases.</p><p>Each of the following <span class="MathJax_Preview">t</span>$t$ lines contains a single integer <span class="MathJax_Preview">x</span>$x$ (<span class="MathJax_Preview">2 \le x \le 1000</span>$2 \le x \le 1000$).</p></div><div class="output-specification"><div class="section-title">Output</div><p>For each test case, output any <span class="MathJax_Preview">y</span>$y$ (<span class="MathJax_Preview">1 \le y  \lt  x</span>$1 \le y  \lt  x$), which satisfies the statement.</p></div><div class="sample-tests"><div class="section-title">Example</div><div class="sample-test"><div class="input"><div class="title">Input<div title="Copy" data-clipboard-target="#id0006409395988267963" id="id004041995267318267" class="input-output-copier">Copy</div></div><pre id="id0006409395988267963"><div class="test-example-line test-example-line-even test-example-line-0">7</div><div class="test-example-line test-example-line-odd test-example-line-1">10</div><div class="test-example-line test-example-line-even test-example-line-2">7</div><div class="test-example-line test-example-line-odd test-example-line-3">21</div><div class="test-example-line test-example-line-even test-example-line-4">100</div><div class="test-example-line test-example-line-odd test-example-line-5">2</div><div class="test-example-line test-example-line-even test-example-line-6">1000</div><div class="test-example-line test-example-line-odd test-example-line-7">6</div></pre></div><div class="output"><div class="title">Output<div title="Copy" data-clipboard-target="#id002432160794520929" id="id008441371581160669" class="input-output-copier">Copy</div></div><pre id="id002432160794520929">5
+6
+18
+98
+1
+750
+3
+</pre></div></div></div>
