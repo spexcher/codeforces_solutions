@@ -1,0 +1,17 @@
+<h2><a href="https://codeforces.com/contest/270/problem/A" target="_blank" rel="noopener noreferrer">270A — Fancy Fence</a></h2>
+
+| | |
+|---|---|
+| **Difficulty** | 1100 |
+| **Language** | C++20 (GCC 13-64) |
+| **Verdict** | ✅ Accepted |
+| **Problem Link** | [Codeforces 270A](https://codeforces.com/contest/270/problem/A) |
+
+## Topics
+`geometry` `implementation` `math`
+
+---
+
+## Problem Statement
+
+<div class="header"><div class="title">A. Fancy Fence</div><div class="time-limit"><div class="property-title">time limit per test</div>2 seconds</div><div class="memory-limit"><div class="property-title">memory limit per test</div>256 megabytes</div><div class="input-file input-standard" style="font-weight: bold"><div class="property-title">input</div>stdin</div><div class="output-file output-standard" style="font-weight: bold"><div class="property-title">output</div>stdout</div></div><div><p>Emuskald needs a fence around his farm, but he is too lazy to build it himself. So he purchased a fence-building robot.</p><p>He wants the fence to be a regular polygon. The robot builds the fence along a single path, but it can only make fence corners at a single angle <span class="tex-span"><i>a</i></span>.</p><p>Will the robot be able to build the fence Emuskald wants? In other words, is there a regular polygon which angles are equal to <span class="tex-span"><i>a</i></span>?</p></div><div class="input-specification"><div class="section-title">Input</div><p>The first line of input contains an integer <span class="tex-span"><i>t</i></span> (<span class="tex-span">0 < <i>t</i> < 180</span>) — the number of tests. Each of the following <span class="tex-span"><i>t</i></span> lines contains a single integer <span class="tex-span"><i>a</i></span> (<span class="tex-span">0 < <i>a</i> < 180</span>) — the angle the robot can make corners at measured in degrees.</p></div><div class="output-specification"><div class="section-title">Output</div><p>For each test, output on a single line "<span class="tex-font-style-tt">YES</span>" (without quotes), if the robot can build a fence Emuskald wants, and "<span class="tex-font-style-tt">NO</span>" (without quotes), if it is impossible.</p></div><div class="sample-tests"><div class="section-title">Examples</div><div class="sample-test"><div class="input"><div class="title">Input<div title="Copy" data-clipboard-target="#id006799424610967802" id="id009920933888753222" class="input-output-copier">Copy</div></div><pre id="id006799424610967802">3<br>30<br>60<br>90<br></pre></div><div class="output"><div class="title">Output<div title="Copy" data-clipboard-target="#id005427876978644148" id="id00012151714834480298" class="input-output-copier">Copy</div></div><pre id="id005427876978644148">NO<br>YES<br>YES<br></pre></div></div></div><div class="note"><div class="section-title">Note</div><p>In the first test case, it is impossible to build the fence, since there is no regular polygon with angle <img align="middle" class="tex-formula" src="https://espresso.codeforces.com/df5f4b07dd5316fde165b43657b2696e2919e791.png" style="max-width: 100.0%;max-height: 100.0%;">.</p><p>In the second test case, the fence is a regular triangle, and in the last test case — a square.</p></div>
