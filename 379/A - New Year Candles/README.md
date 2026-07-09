@@ -1,0 +1,17 @@
+<h2><a href="https://codeforces.com/contest/379/problem/A" target="_blank" rel="noopener noreferrer">379A — New Year Candles</a></h2>
+
+| | |
+|---|---|
+| **Difficulty** | 1000 |
+| **Language** | C++20 (GCC 13-64) |
+| **Verdict** | ✅ Accepted |
+| **Problem Link** | [Codeforces 379A](https://codeforces.com/contest/379/problem/A) |
+
+## Topics
+`implementation`
+
+---
+
+## Problem Statement
+
+<div class="header"><div class="title">A. New Year Candles</div><div class="time-limit"><div class="property-title">time limit per test</div>1 second</div><div class="memory-limit"><div class="property-title">memory limit per test</div>256 megabytes</div><div class="input-file input-standard" style="font-weight: bold"><div class="property-title">input</div>stdin</div><div class="output-file output-standard" style="font-weight: bold"><div class="property-title">output</div>stdout</div></div><div><p>Vasily the Programmer loves romance, so this year he decided to illuminate his room with candles.</p><p>Vasily has <span class="tex-span"><i>a</i></span> candles.When Vasily lights up a new candle, it first burns for an hour and then it goes out. Vasily is smart, so he can make <span class="tex-span"><i>b</i></span> went out candles into a new candle. As a result, this new candle can be used like any other new candle.</p><p>Now Vasily wonders: for how many hours can his candles light up the room if he acts optimally well? Help him find this number.</p></div><div class="input-specification"><div class="section-title">Input</div><p>The single line contains two integers, <span class="tex-span"><i>a</i></span> and <span class="tex-span"><i>b</i></span> <span class="tex-span">(1 ≤ <i>a</i> ≤ 1000; 2 ≤ <i>b</i> ≤ 1000)</span>.</p></div><div class="output-specification"><div class="section-title">Output</div><p>Print a single integer — the number of hours Vasily can light up the room for.</p></div><div class="sample-tests"><div class="section-title">Examples</div><div class="sample-test"><div class="input"><div class="title">Input<div title="Copy" data-clipboard-target="#id007274612221444395" id="id006211011546055586" class="input-output-copier">Copy</div></div><pre id="id007274612221444395">4 2<br></pre></div><div class="output"><div class="title">Output<div title="Copy" data-clipboard-target="#id008580575518185369" id="id0034351166324616544" class="input-output-copier">Copy</div></div><pre id="id008580575518185369">7<br></pre></div><div class="input"><div class="title">Input<div title="Copy" data-clipboard-target="#id0004130999955039871" id="id00884200545687667" class="input-output-copier">Copy</div></div><pre id="id0004130999955039871">6 3<br></pre></div><div class="output"><div class="title">Output<div title="Copy" data-clipboard-target="#id00360372812826557" id="id0042573853607513656" class="input-output-copier">Copy</div></div><pre id="id00360372812826557">8<br></pre></div></div></div><div class="note"><div class="section-title">Note</div><p>Consider the first sample. For the first four hours Vasily lights up new candles, then he uses four burned out candles to make two new ones and lights them up. When these candles go out (stop burning), Vasily can make another candle. Overall, Vasily can light up the room for 7 hours.</p></div>
