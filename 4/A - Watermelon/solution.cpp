@@ -1,6 +1,6 @@
 // ======================================================
 //  Author       : spexcher | Gourab Modak
-//  Created      : 14.03.2026 at 12:18:35
+//  Created      : 12.07.2026 at 01:24:10
 //  Contact      : spexcher@gmail.com
 //  Linktree     : https://linktr.ee/spexcher/
 //  GitHub       : https://github.com/spexcher/
@@ -96,7 +96,7 @@ using max_heap = priority_queue<T>;
 #define ceildiv(a, b) ((a + b - 1) / b)
 #define sz(x) (ll) x.size()
 #define getunique(v) sort(all(v)), v.erase(unique(all(v)), v.end())
-#define print(x) cout << x << " "
+#define print(x) cout << x
 #define printsp(x) cout << x << " "
 #define println(x) cout << x << "
 "
@@ -249,9 +249,12 @@ signed main()
  
 void solve()
 {
-    int n;
-    cin >> n;
-    (n % 2 == 0 and n != 2) ? println("YES") : println("NO");
+    int x;
+    cin >> x;
+    if (x > 2 and x % 2 == 0)
+        py;
+    else
+        pn;
 }
 // ======================================================
 //  Thank You for Viewing
