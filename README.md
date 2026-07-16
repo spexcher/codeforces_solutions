@@ -6,18 +6,26 @@
 
 | Total Problems | Topics |
 |---|---|
-| 2 | 4 |
+| 3 | 6 |
 
 ---
 
 ## 📂 Topic-Wise Problems
 
+- [*special](#special) (1)
 - [brute force](#brute-force) (1)
 - [combinatorics](#combinatorics) (1)
 - [dp](#dp) (1)
+- [implementation](#implementation) (1)
 - [math](#math) (1)
 
 ---
+
+### *special
+
+| # | Problem | Difficulty | Solution |
+|---|---------|------------|----------|
+| 158A | [Next Round](https://codeforces.com/contest/158/problem/A) | 800 | [C++23 (GCC 14-64, msys2)](https://github.com/spexcher/codeforces_solutions/blob/HEAD/158/A%20-%20Next%20Round/solution.cpp) |
 
 ### brute force
 
@@ -36,6 +44,12 @@
 | # | Problem | Difficulty | Solution |
 |---|---------|------------|----------|
 | 1036C | [Classy Numbers](https://codeforces.com/contest/1036/problem/C) | 1900 | [C++23 (GCC 14-64, msys2)](https://github.com/spexcher/codeforces_solutions/blob/HEAD/1036/C%20-%20Classy%20Numbers/solution.cpp) |
+
+### implementation
+
+| # | Problem | Difficulty | Solution |
+|---|---------|------------|----------|
+| 158A | [Next Round](https://codeforces.com/contest/158/problem/A) | 800 | [C++23 (GCC 14-64, msys2)](https://github.com/spexcher/codeforces_solutions/blob/HEAD/158/A%20-%20Next%20Round/solution.cpp) |
 
 ### math
 
