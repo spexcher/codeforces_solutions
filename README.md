@@ -12,20 +12,14 @@
 
 ## 📂 Topic-Wise Problems
 
-- [*special](#special) (1)
 - [brute force](#brute-force) (1)
-- [combinatorics](#combinatorics) (1)
+- [combinatorics](#combinatorics) (2)
+- [dfs and similar](#dfs-and-similar) (1)
 - [dp](#dp) (1)
-- [implementation](#implementation) (1)
-- [math](#math) (1)
+- [graphs](#graphs) (1)
+- [math](#math) (2)
 
 ---
-
-### *special
-
-| # | Problem | Difficulty | Solution |
-|---|---------|------------|----------|
-| 158A | [Next Round](https://codeforces.com/contest/158/problem/A) | 800 | [C++23 (GCC 14-64, msys2)](https://github.com/spexcher/codeforces_solutions/blob/HEAD/158/A%20-%20Next%20Round/solution.cpp) |
 
 ### brute force
 
@@ -37,7 +31,14 @@
 
 | # | Problem | Difficulty | Solution |
 |---|---------|------------|----------|
+| 150B | [Quantity of Strings](https://codeforces.com/contest/150/problem/B) | 1600 | [C++23 (GCC 14-64, msys2)](https://github.com/spexcher/codeforces_solutions/blob/HEAD/150/B%20-%20Quantity%20of%20Strings/solution.cpp) |
 | 1036C | [Classy Numbers](https://codeforces.com/contest/1036/problem/C) | 1900 | [C++23 (GCC 14-64, msys2)](https://github.com/spexcher/codeforces_solutions/blob/HEAD/1036/C%20-%20Classy%20Numbers/solution.cpp) |
+
+### dfs and similar
+
+| # | Problem | Difficulty | Solution |
+|---|---------|------------|----------|
+| 150B | [Quantity of Strings](https://codeforces.com/contest/150/problem/B) | 1600 | [C++23 (GCC 14-64, msys2)](https://github.com/spexcher/codeforces_solutions/blob/HEAD/150/B%20-%20Quantity%20of%20Strings/solution.cpp) |
 
 ### dp
 
@@ -45,17 +46,18 @@
 |---|---------|------------|----------|
 | 1036C | [Classy Numbers](https://codeforces.com/contest/1036/problem/C) | 1900 | [C++23 (GCC 14-64, msys2)](https://github.com/spexcher/codeforces_solutions/blob/HEAD/1036/C%20-%20Classy%20Numbers/solution.cpp) |
 
-### implementation
+### graphs
 
 | # | Problem | Difficulty | Solution |
 |---|---------|------------|----------|
-| 158A | [Next Round](https://codeforces.com/contest/158/problem/A) | 800 | [C++23 (GCC 14-64, msys2)](https://github.com/spexcher/codeforces_solutions/blob/HEAD/158/A%20-%20Next%20Round/solution.cpp) |
+| 150B | [Quantity of Strings](https://codeforces.com/contest/150/problem/B) | 1600 | [C++23 (GCC 14-64, msys2)](https://github.com/spexcher/codeforces_solutions/blob/HEAD/150/B%20-%20Quantity%20of%20Strings/solution.cpp) |
 
 ### math
 
 | # | Problem | Difficulty | Solution |
 |---|---------|------------|----------|
 | 4A | [Watermelon](https://codeforces.com/contest/4/problem/A) | 800 | [C++23 (GCC 14-64, msys2)](https://github.com/spexcher/codeforces_solutions/blob/HEAD/4/A%20-%20Watermelon/solution.cpp) |
+| 150B | [Quantity of Strings](https://codeforces.com/contest/150/problem/B) | 1600 | [C++23 (GCC 14-64, msys2)](https://github.com/spexcher/codeforces_solutions/blob/HEAD/150/B%20-%20Quantity%20of%20Strings/solution.cpp) |
 
 ---
 
